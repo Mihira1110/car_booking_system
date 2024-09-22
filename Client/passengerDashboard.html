@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Passenger Dashboard</title>
+    <link rel="stylesheet" href="./CSS/passengerDashboard.css" />
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2-R2HJHtelji_4yXEPi5DW2TdBhYl6sI&loading=async&callback=initMap"
+    defer
+    >
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" src="./assest/City Taxi.png">
+      <h2>Passenger Dashboard</h2>
+
+      <!-- Passenger Profile Section -->
+      <div id="profile">
+        <h3>Profile</h3>
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Phone:</strong> <span id="phone"></span></p>
+      </div>
+
+      <!-- Booking Section -->
+      <div id="bookings">
+        <h3>Your Bookings</h3>
+        <ul id="bookingList"></ul>
+      </div>
+
+
+        
+<form id="createBookingForm">
+    <label for="nearest">Nearest Drivers:</label>
+    <select id="driverSelect" required>
+        <option value="">-- Select a Driver --</option>
+    </select>
+
+    <label for="pickupLocation">Pickup Location:</label>
+    <input type="text" id="pickupLocation" required>
+
+    <label for="dropoffLocation">Dropoff Location:</label>
+    <input type="text" id="dropoffLocation" required>
+
+    <p id="result">Distance: Not calculated</p>
+
+    <p id="fare">Fare: Not calculated</p>
+     
+    <label for="date">Date:</label>
+    <input type="date" id="date" required>
+
+
+
+    <button id="newBookingBtn">Create Booking</button>
+</form>
+
+
+
+
+
+ <div id="map" style="height: 400px; width: 100%;"></div>
+ <br>
+      <!-- Trip Tracking Section -->
+      <div id="trackingSection" style="display: none">
+        <h3>Track Your Driver</h3>
+        <div id="map" style="height: 400px; width: 100%"></div>
+        <p><strong>Driver Name:</strong> <span id="driverName"></span></p>
+        <p><strong>Vehicle No:</strong> <span id="vehicleNo"></span></p>
+        <button id="cancelBookingBtn">Cancel Booking</button>
+      </div>
+      
+     
+<div id="trackingSection" >
+<h3 >Your Trip History</h3>
+<ul id="tripHistoryList"></ul>
+</div>
+<!-- Payment Modal -->
+<div id="paymentModal" style="display:none;">
+    <button class="closeModalBtn">&times;</button>
+    <h4>Payment</h4>
+    <p>Fare: <span id="fareAmount"></span></p>
+    <button id="payBtn">Pay</button>
+</div>
+
+<!-- Rating Modal -->
+<div id="ratingModal" style="display:none;">
+   <button class="closeModalBtn">&times;</button>
+    <h4>Rate Your Trip</h4>
+    <label for="rating">Rating (1-5):</label>
+    <input type="number" id="ratingInput" min="1" max="5">
+    <button id="submitRatingBtn">Submit Rating</button>
+</div>
+
+
+    <script src="./JS/passengerDashboard.js"></script>
+  </body>
+</html>

@@ -33,7 +33,7 @@ exports.loginUser = async (req, res) => {
         await driver.save();
          console.log(location)
             
-        } else if (user.role === 'passenger') {
+        } else if (user.role === 'passenger'||'operater') {
             // Passenger ID is the user ID
             
             passengerId = user._id;

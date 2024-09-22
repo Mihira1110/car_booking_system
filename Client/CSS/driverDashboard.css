@@ -1,0 +1,124 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f3c623, #f76b1c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    background: #fff;
+    padding: 40px;
+    max-width: 850px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Logo Styling */
+.logo {
+    max-width: 120px;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        max-width: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Section Titles */
+h2, h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Dashboard Styling */
+#dashboard {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#dashboard p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+button {
+    padding: 12px;
+    background-color: #f76b1c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #d95a0b;
+}
+
+/* Map Styling */
+#map {
+    margin: 20px 0;
+    border-radius: 10px;
+    height: 300px; /* Adjust based on your needs */
+}
+
+/* Available Hires */
+#availableHires {
+    text-align: left;
+}
+
+#hireList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#hireList li {
+    background-color: #f3f4f6;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    #dashboard p {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}

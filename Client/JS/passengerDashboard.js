@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Fetch passenger profile
-    fetch(`http://localhost:3001/passenger/profile/${passengerId}`)
+    fetch(`https://nodeserver-beta.vercel.app/passenger/profile/${passengerId}`)
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPassengerBookings(passengerId);
 
     // Fetch passenger trip history
-    fetch(`http://localhost:3001/passenger/history/${passengerId}`)
+    fetch(`https://nodeserver-beta.vercel.app/passenger/history/${passengerId}`)
         .then(response => response.json())
         .then(data => {
             const tripHistoryList = document.getElementById('tripHistoryList');
@@ -41,12 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
  // Fetch passenger bookings
 function fetchPassengerBookings(passengerId) {
-    fetch(`http://localhost:3001/passenger/bookings/${passengerId}`)
+    fetch(`https://nodeserver-beta.vercel.app/passenger/bookings/${passengerId}`)
         .then(response => response.json())
         .then(data => {
             const bookingList = document.getElementById('bookingList');
             bookingList.innerHTML = '';
-            console.log(data);
             data.bookings.forEach(booking => {
                 const listItem = document.createElement('li');
                 listItem.textContent = `Booking: ${booking.pickupLocation} to ${booking.dropoffLocation}`;
@@ -68,7 +67,7 @@ function fetchPassengerBookings(passengerId) {
 
 // Cancel a booking by booking ID
 function cancelBooking(bookingId) {
-    fetch(`http://localhost:3001/bookings/cancel/${bookingId}`, {
+    fetch(`https://nodeserver-beta.vercel.app/bookings/cancel/${bookingId}`, {
         method: 'DELETE', // or 'POST' depending on how your backend handles cancellation
     })
     .then(response => response.json())
@@ -96,7 +95,7 @@ function cancelBooking(bookingId) {
         const passengerId = urlParams.get('passengerId');
 
         // Make the POST request to create a new booking
-        fetch(`http://localhost:3001/passenger/bookings/create`, {
+        fetch(`https://nodeserver-beta.vercel.app/passenger/bookings/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -125,10 +124,8 @@ function cancelBooking(bookingId) {
 
     // Cancel booking
     function cancelBooking(bookingId) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const passengerId = urlParams.get('passengerId');
-
-        fetch(`http://localhost:3001/passenger/bookings/${bookingId}/cancel`, {
+    
+        fetch(`https://nodeserver-beta.vercel.app/passenger/bookings/${bookingId}/cancel`, {
             method: 'POST',
         })
         .then(response => response.json())
@@ -153,15 +150,20 @@ function cancelBooking(bookingId) {
                     const passengerLocation = { lat: latitude, lng: longitude };
                     const radius = 100; // Define the radius in km
 
+                    
+
                     try {
                         const response = await fetchDrivers(passengerLocation, radius);
                         const drivers = response.drivers || []; // Extract the drivers array
                         displayMap(passengerLocation, drivers);
                         displayDriverList(drivers);  // Add this line to display the driver list
+
+                        
                     } catch (error) {
                         console.error('Error fetching drivers:', error);
                     }
                 },
+                
                 error => {
                     console.error('Error getting location:', error);
                 }
@@ -173,7 +175,7 @@ function cancelBooking(bookingId) {
 
     async function fetchDrivers(passengerLocation, radius) {
         try {
-            const response = await fetch(`http://localhost:3001/drivers/closest?lat=${passengerLocation.lat}&lng=${passengerLocation.lng}&radius=${radius}`);
+            const response = await fetch(`https://nodeserver-beta.vercel.app/drivers/closest?lat=${passengerLocation.lat}&lng=${passengerLocation.lng}&radius=${radius}`);
             const data = await response.json();
             console.log('Fetched drivers:', data); // Verify the response
             return data; // Return the full response object
@@ -288,7 +290,7 @@ fetchTripHistory(passengerId);
 
 function fetchTripHistory(passengerId) {
 
-    fetch(`http://localhost:3001/history/${passengerId}`)
+    fetch(`https://nodeserver-beta.vercel.app/history/${passengerId}`)
         .then(response => response.json())
         .then(data => {
             const tripHistoryList = document.getElementById('tripHistoryList');
@@ -310,6 +312,12 @@ function fetchTripHistory(passengerId) {
                     console.log(trip)
                     listItem.appendChild(payButton);
                     listItem.appendChild(rateButton);
+
+                }else if (trip.status === 'canceled'){
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', () => deleteBooking(trip._id));
+                    listItem.appendChild(deleteButton);
                 }
 
                 tripHistoryList.appendChild(listItem);
@@ -318,6 +326,25 @@ function fetchTripHistory(passengerId) {
         .catch(error => console.error('Error fetching trip history:', error));
         
 }
+
+  // delete Trip Histroy
+    function deleteBooking(passengerId) {
+    
+        fetch(`https://nodeserver-beta.vercel.app/passenger/bookings/${passengerId}/delete`, {
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('histroy delete successfully');
+            } else {
+                alert('Error canceling booking');
+            }
+        })
+        .catch(error => console.error('Error canceling booking:', error));
+    }
+
+
 
 // Open payment modal
 function openPaymentModal(trip) {
@@ -328,7 +355,7 @@ function openPaymentModal(trip) {
 
 // Handle payment
 function payForTrip(tripId) {
-    fetch(`http://localhost:3001/pay/${tripId}`, {
+    fetch(`https://nodeserver-beta.vercel.app/pay/${tripId}`, {
         method: 'POST'
     })
     .then(response => response.json())
@@ -354,7 +381,7 @@ function openRatingModal(trip) {
 function submitRating(tripId) {
     const rating = document.getElementById('ratingInput').value;
     
-    fetch(`http://localhost:3001/rate/${tripId}`, {
+    fetch(`https://nodeserver-beta.vercel.app/rate/${tripId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

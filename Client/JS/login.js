@@ -12,7 +12,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             console.log(latitude);
             try {
                 // Send login request along with geolocation data
-                const response = await fetch('http://localhost:3001/login', {
+                const response = await fetch('https://nodeserver-beta.vercel.app/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -33,12 +33,15 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
                     alert('Login successful!');
                     
                     // Redirect based on the user role
-                    if (data.role === 'admin') {
-                        window.location.href = "../HTML/admin.html"; // Admin dashboard
+                    if (data.role === 'operator') {
+                        window.location.href =`./operatorDashboard.html?passengerId=${data.passengerId}`; // Operator dashboard
                     } else if (data.role === 'driver') {
-                        window.location.href = `../HTML/driverDashboard.html?driverId=${data.driverId}`; 
+                        window.location.href = `./driverDashboard.html?driverId=${data.driverId}`; 
                     } else if (data.role === 'passenger') {
-                        window.location.href = `../HTML/passengerDashboard.html?passengerId=${data.passengerId}`;
+                        window.location.href = `./passengerDashboard.html?passengerId=${data.passengerId}`;
+                    }
+                     else if (data.role === 'admin') {
+                        window.location.href = "./adminDashboard.html";
                     }
                 } else {
                     alert('Login failed: ' + data.message); // Show error message

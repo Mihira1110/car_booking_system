@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getPassengerProfile,getPassengerBookings,getPassengerTripHistory,cancelBooking,createBooking,getClosestDrivers} = require('../controllers/passengerController');
+const {getPassengerProfile,getPassengerBookings,getPassengerTripHistory,cancelBooking,createBooking,getClosestDrivers,deleteBooking} = require('../controllers/passengerController');
 
 // Route to get passenger profile
 router.get('/passenger/profile/:passengerId', getPassengerProfile);
@@ -13,6 +13,9 @@ router.get('/passenger/history/:passengerId',getPassengerTripHistory);
 
 // Route to cancel booking
 router.post('/passenger/bookings/:bookingId/cancel', cancelBooking);
+
+// Route to cancel booking
+router.post('/passenger/bookings/:passengerId/delete', deleteBooking);
 
 router.post('/passenger/bookings/create', createBooking);
 

@@ -1,9 +1,11 @@
 window.addEventListener('DOMContentLoaded', async function() {
     const urlParams = new URLSearchParams(window.location.search);
     const driverId = urlParams.get('driverId');
+
+    initMap();
     try {
         if (driverId) {
-            const response = await fetch(`http://localhost:3001/driver/details?driverId=${driverId}`);
+            const response = await fetch(`https://nodeserver-beta.vercel.app/driver/details?driverId=${driverId}`);
             console.log(driverId);
             if (!response.ok) {
                 throw new Error('Network response was not ok.');
@@ -47,7 +49,7 @@ document.getElementById('toggleAvailability').addEventListener('click', async fu
         const newStatus = !currentStatus; // Toggle status
         console.log(newStatus)
         // Update availability on the backend
-        const response = await fetch('http://localhost:3001/driver/availability', {
+        const response = await fetch('https://nodeserver-beta.vercel.app/driver/availability', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -78,7 +80,7 @@ document.getElementById('pickHire').addEventListener('click', async function() {
 
     try {
         
-        const response = await fetch(`http://localhost:3001/driver/hires/${driverId}`);
+        const response = await fetch(`https://nodeserver-beta.vercel.app/driver/hires/${driverId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok.');
         }
@@ -112,7 +114,7 @@ async function acceptHire(hireId) {
 
     try {
         // Correct the query parameters in the fetch URL
-        const response = await fetch(`http://localhost:3001/driver/hires/accept?hireId=${hireId}&driverId=${driverId}`,
+        const response = await fetch(`https://nodeserver-beta.vercel.app/driver/hires/accept?hireId=${hireId}&driverId=${driverId}`,
          {
             method: 'POST',
             headers: {
@@ -151,11 +153,20 @@ function initMap() {
                             zoom: 12,
                         });
 
+
+                    new google.maps.Marker({
+                        position: passengerLocation,
+                        map: map,
+                        title: 'Your Location',
+                    });
+
                         new google.maps.Marker({
                             position: { lat: latitude, lng: longitude },
                             map: map,
                             title: 'Your Location',
                         });
+
+                        
                     },
                     error => {
                         console.error('Error getting location:', error);
@@ -166,7 +177,12 @@ function initMap() {
                         maximumAge: 0
                     }
                 );
+
+                
             } else {
                 console.error('Geolocation is not supported by this browser.');
-            }
         }
+}
+
+
+

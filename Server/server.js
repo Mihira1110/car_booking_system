@@ -4,45 +4,45 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const driverRoutes = require('./routes/driverRoutes');
-const pessengerRoutes = require('./routes/passengerRoutes');
+const passengerRoutes = require('./routes/passengerRoutes'); // Corrected spelling
 const tripRoutes = require('./routes/tripRoutes');
-const serverless = require("serverless-http");
-const router = express.Router();
+const adminDashboard =require('./routes/adminRoutes')
 require('dotenv').config();
 
-router.get("/", (req, res) => {
-    res.send("App is running..");
-});
-
-app.use("/.netlify/functions/app", router);
-module.exports.handler = serverless(app);
-
 const app = express();
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT || 3000;
 
-// Log environment variables
-console.log('PORT:', PORT);
-console.log('MONGO_URI:', process.env.MONGO_URI);
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log('MongoDB connected...');
+    } catch (error) {
+        console.error('MongoDB connection error:', error.message);
+        process.exit(1);
+    }
+};
 
-// Middleware to parse JSON requests
+// Middleware
 app.use(cors({
-  origin: 'http://127.0.0.1:5500'
+  origin: 'https://client-umber-gamma.vercel.app'
 }));
 app.use(express.json());
 
 // Connect to MongoDB
+connectDB();
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
-
-
-// Routes
+// Define routes
 app.use('/', userRoutes);
 app.use('/', authRoutes);
 app.use('/', driverRoutes);
-app.use('/', pessengerRoutes);
-app.use('/',tripRoutes);
+app.use('/', passengerRoutes);
+app.use('/', tripRoutes);
+app.use('/',adminDashboard);
+
+// Basic route
+app.get('/', (req, res) => {
+  res.send('The server is up and running!');
+});
 
 // Start the server
 app.listen(PORT, () => {

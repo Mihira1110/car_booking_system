@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-        password: {
+    password: {
         type: String,
         required: true
     },
@@ -22,10 +22,9 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         required: true,
-        enum: ['passenger', 'driver','operator']
+        enum: ['passenger', 'driver', 'operator','admin']
     }
 }, { timestamps: true });
-
 
 // Hash the password before saving the user
 userSchema.pre('save', async function(next) {
@@ -33,6 +32,14 @@ userSchema.pre('save', async function(next) {
 
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
+
+// Pre-save hook to format the phone number
+userSchema.pre('save', function(next) {
+    if (this.phone && !this.phone.startsWith('+94')) {
+        this.phone = `+94${this.phone.replace(/^0/, '')}`; // Remove leading 0 if present
+    }
     next();
 });
 

@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "build": "netlify deploy --prod"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vonage/server-sdk": "^3.17.0",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -20,9 +21,6 @@
     "json": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.1",
-    "netlify-cli": "^17.36.0",
-    "netlify-lambda": "^2.0.16",
-    "nodemailer": "^6.9.15",
-    "serverless-http": "^3.2.0"
+    "nodemailer": "^6.9.15"
   }
 }

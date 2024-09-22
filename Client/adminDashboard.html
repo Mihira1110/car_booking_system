@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./CSS/adminDashboard.css"> <!-- Custom CSS if needed -->
+</head>
+<body>
+  <img class="logo" src="./assest/City Taxi.png">
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+    <!-- Nav tabs for Users, Bookings, and Trips -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" href="#users" role="tab" data-toggle="tab">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#bookings" role="tab" data-toggle="tab">Bookings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#trips" role="tab" data-toggle="tab">Trips</a>
+      </li>
+    </ul>
+
+    <!-- Tab content -->
+    <div class="tab-content">
+      <!-- ======================= USERS ======================= -->
+      <div role="tabpanel" class="tab-pane active" id="users">
+        <h3 class="mt-4">Manage Users</h3>
+        
+        <!-- View Users -->
+        <table class="table table-bordered mt-4">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="userTableBody">
+            <!-- Users will be dynamically populated here -->
+          </tbody>
+        </table>
+
+        <!-- Add User -->
+        <h4>Add New User</h4>
+        <form id="addUserForm" class="mt-4">
+          <div class="form-group">
+            <label for="userName">Name</label>
+            <input type="text" class="form-control" id="userName" required>
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Email</label>
+            <input type="email" class="form-control" id="userEmail" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add User</button>
+        </form>
+
+        <!-- Update User Modal -->
+        <div class="modal" id="updateUserModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Update User</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form id="updateUserForm">
+                  <div class="form-group">
+                    <label for="updateUserName">Name</label>
+                    <input type="text" class="form-control" id="updateUserName">
+                  </div>
+                  <div class="form-group">
+                    <label for="updateUserEmail">Email</label>
+                    <input type="email" class="form-control" id="updateUserEmail">
+                  </div>
+                  <input type="hidden" id="updateUserId">
+                  <button type="submit" class="btn btn-primary">Update User</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ======================= BOOKINGS ======================= -->
+      <div role="tabpanel" class="tab-pane" id="bookings">
+        <h3 class="mt-4">Manage Bookings</h3>
+
+        <!-- View Bookings -->
+        <table class="table table-bordered mt-4">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Pickup</th>
+              <th>Dropoff</th>
+              <th>Status</th>
+              <th>Fare</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookingTableBody">
+            <!-- Bookings will be dynamically populated here -->
+          </tbody>
+        </table>
+
+        <!-- Add Booking -->
+        <h4>Add New Booking</h4>
+        <form id="addBookingForm" class="mt-4">
+          <div class="form-group">
+            <label for="bookingPassenger">Passenger</label>
+            <input type="text" class="form-control" id="bookingPassenger" required>
+          </div>
+          <div class="form-group">
+            <label for="pickupLocation">Pickup Location</label>
+            <input type="text" class="form-control" id="pickupLocation" required>
+          </div>
+          <div class="form-group">
+            <label for="dropoffLocation">Dropoff Location</label>
+            <input type="text" class="form-control" id="dropoffLocation" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Booking</button>
+        </form>
+
+        <!-- Update Booking Modal -->
+        <div class="modal" id="updateBookingModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Update Booking</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form id="updateBookingForm">
+                  <div class="form-group">
+                    <label for="updateBookingPassenger">Passenger</label>
+                    <input type="text" class="form-control" id="updateBookingPassenger">
+                  </div>
+                  <div class="form-group">
+                    <label for="updatePickupLocation">Pickup Location</label>
+                    <input type="text" class="form-control" id="updatePickupLocation">
+                  </div>
+                  <div class="form-group">
+                    <label for="updateDropoffLocation">Dropoff Location</label>
+                    <input type="text" class="form-control" id="updateDropoffLocation">
+                  </div>
+                  <input type="hidden" id="updateBookingId">
+                  <button type="submit" class="btn btn-primary">Update Booking</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ======================= TRIPS ======================= -->
+      <div role="tabpanel" class="tab-pane" id="trips">
+        <h3 class="mt-4">Manage Trips</h3>
+
+        <!-- View Trips -->
+        <table class="table table-bordered mt-4">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Driver</th>
+              <th>Pickup</th>
+              <th>Dropoff</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tripTableBody">
+            <!-- Trips will be dynamically populated here -->
+          </tbody>
+        </table>
+
+        <!-- Add Trip -->
+        <h4>Add New Trip</h4>
+        <form id="addTripForm" class="mt-4">
+          <div class="form-group">
+            <label for="tripDriver">Driver</label>
+            <input type="text" class="form-control" id="tripDriver" required>
+          </div>
+          <div class="form-group">
+            <label for="tripPickupLocation">Pickup Location</label>
+            <input type="text" class="form-control" id="tripPickupLocation" required>
+          </div>
+          <div class="form-group">
+            <label for="tripDropoffLocation">Dropoff Location</label>
+            <input type="text" class="form-control" id="tripDropoffLocation" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Trip</button>
+        </form>
+
+        <!-- Update Trip Modal -->
+        <div class="modal" id="updateTripModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Update Trip</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form id="updateTripForm">
+                  <div class="form-group">
+                    <label for="updateTripDriver">Driver</label>
+                    <input type="text" class="form-control" id="updateTripDriver">
+                  </div>
+                  <div class="form-group">
+                    <label for="updateTripPickupLocation">Pickup Location</label>
+                    <input type="text" class="form-control" id="updateTripPickupLocation">
+                  </div>
+                  <div class="form-group">
+                    <label for="updateTripDropoffLocation">Dropoff Location</label>
+                    <input type="text" class="form-control" id="updateTripDropoffLocation">
+                  </div>
+                  <input type="hidden" id="updateTripId">
+                  <button type="submit" class="btn btn-primary">Update Trip</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./JS/admindashboard.js"></script> <!-- JavaScript for CRUD operations -->
+</body>
+</html>

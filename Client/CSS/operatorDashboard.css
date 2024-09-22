@@ -1,0 +1,241 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f3c623, #f76b1c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    background: linear-gradient(135deg, #fff, #f9f9f9);
+    padding: 40px;
+    max-width: 850px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+}
+
+.container:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Styling */
+.logo {
+    max-width: 120px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        max-width: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Section Titles */
+h2, h3, h4 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+   
+}
+
+h4 {
+    font-size: 1.2rem;
+     text-align: center;
+     color: #d9a20b;
+}
+
+p{
+    font-size: 1.2rem;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    padding:10px;
+    text-align: center;
+}
+/* Booking Section */
+#bookingSection {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#bookingSection label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 1rem;
+}
+
+#bookingSection input,
+#bookingSection select {
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+#bookingSection input:focus,
+#bookingSection select:focus {
+    outline: none;
+    border-color: #f76b1c; /* Match the button color */
+    background-color: #fff;
+}
+
+#newBookingBtn {
+    padding: 15px;
+    background-color: #f76b1c;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left:305px;
+}
+
+#newBookingBtn:hover {
+    background-color: #d95a0b;
+}
+
+/* Booking List */
+#bookings {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    background-color: #f3f4f6;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+/* Map Styling */
+#map {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Trip History */
+#tripHistoryList {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+/* Modal Styling */
+#paymentModal,
+#ratingModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    z-index: 1000;
+    display: none;
+}
+
+.closeModalBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#paymentModal button,
+#ratingModal button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f76b1c; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#paymentModal button:hover,
+#ratingModal button:hover {
+    background-color: #d95a0b; /* Button hover color */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    #bookingSection input,
+    #bookingSection select,
+    #newBookingBtn {
+        font-size: 1rem;
+    }
+
+    ul li {
+        font-size: 0.9rem;
+    }
+
+    #paymentModal,
+    #ratingModal {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #newBookingBtn {
+        font-size: 1rem;
+    }
+}

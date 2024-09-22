@@ -26,7 +26,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
 
     };
 
-    fetch('http://localhost:3001/register', {
+    fetch('https://nodeserver-beta.vercel.app/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

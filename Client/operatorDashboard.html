@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Dashboard</title>
+    <link rel="stylesheet" href="./CSS/operatorDashboard.css" />
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2-R2HJHtelji_4yXEPi5DW2TdBhYl6sI&loading=async&callback=initMap"
+    defer
+    >
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" src="./assest/City Taxi.png">
+      <h2>Operator Dashboard</h2>
+
+      <!-- Passenger Booking Section -->
+      <div id="bookingSection">
+        <h4>Manual Booking for Unregistered Passengers</h4>
+        <form id="createBookingForm">
+          <!-- Passenger Details -->
+          <label for="passengerName">Passenger Name:</label>
+          <input type="text" id="passengerName" required placeholder="Enter passenger's name">
+
+          <label for="phone">Phone Number:</label>
+          <input type="text" id="phone" required placeholder="Enter phone number">
+
+          <!-- Booking Details -->
+          <label for="pickupLocation">Pickup Location:</label>
+          <input type="text" id="pickupLocation" required>
+
+          <label for="dropoffLocation">Dropoff Location:</label>
+          <input type="text" id="dropoffLocation" required>
+
+          <!-- Nearest Drivers Dropdown -->
+          <label for="nearest">Nearest Drivers:</label>
+          <select id="driverSelect" required>
+              <option value="">-- Select a Driver --</option>
+          </select>
+
+          <label for="date">Date:</label>
+          <input type="date" id="date" required>
+
+          <!-- Booking Details -->
+          <p id="result">Distance: Not calculated</p>
+          <p id="fare">Fare: Not calculated</p>
+          
+          <button id="newBookingBtn">Create Booking</button>
+        </form>
+      </div>
+
+        <!-- Booking Section -->
+      <div id="bookings">
+        <h3> Bookings</h3>
+        <ul id="bookingList"></ul>
+      </div>
+
+
+      <div id="map" style="height: 400px; width: 100%;"></div>
+
+      <h3>Trip History</h3>
+      <ul id="tripHistoryList"></ul>
+      <!-- Payment Modal -->
+<div id="paymentModal" style="display:none;">
+    <button class="closeModalBtn">&times;</button>
+    <h4>Payment</h4>
+    <p>Fare: <span id="fareAmount"></span></p>
+    <button id="payBtn">Pay</button>
+</div>
+
+<!-- Rating Modal -->
+<div id="ratingModal" style="display:none;">
+   <button class="closeModalBtn">&times;</button>
+    <h4>Rate Your Trip</h4>
+    <label for="rating">Rating (1-5):</label>
+    <input type="number" id="ratingInput" min="1" max="5">
+    <button id="submitRatingBtn">Submit Rating</button>
+</div>
+
+    </div>
+
+    <script src="./JS/operatorDashboard.js"></script>
+  </body>
+</html>
