@@ -162,3 +162,29 @@ h2 {
         font-size: 0.9rem;
     }
 }
+
+/* Footer Styles */
+.footer {
+    background: linear-gradient(135deg, #f3c623, #f76b1c);
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+    color: #000000;
+    font-size: 13px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icons a {
+    margin: 0 15px;
+}
+
+.footer .social-icons img {
+    width: 30px; /* Adjust the size of the social media icons */
+    height: auto;
+    vertical-align: middle;
+}
