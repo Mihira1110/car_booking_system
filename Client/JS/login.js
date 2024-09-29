@@ -12,7 +12,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             console.log(latitude);
             try {
                 // Send login request along with geolocation data
-                const response = await fetch('https://nodeserver-beta.vercel.app/login', {
+                const response = await fetch('http://localhost:3001/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

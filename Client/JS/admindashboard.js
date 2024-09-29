@@ -1,5 +1,5 @@
 // Base URL for API
-const baseURL = "https://nodeserver-beta.vercel.app";
+const baseURL = "";
 
 // ======================= USERS =======================
 

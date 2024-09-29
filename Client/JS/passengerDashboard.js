@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Fetch passenger profile
-    fetch(`https://nodeserver-beta.vercel.app/passenger/profile/${passengerId}`)
+    fetch(`http://localhost:3001/passenger/profile/${passengerId}`)
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPassengerBookings(passengerId);
 
     // Fetch passenger trip history
-    fetch(`https://nodeserver-beta.vercel.app/passenger/history/${passengerId}`)
+    fetch(`http://localhost:3001/${passengerId}`)
         .then(response => response.json())
         .then(data => {
             const tripHistoryList = document.getElementById('tripHistoryList');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  // Fetch passenger bookings
 function fetchPassengerBookings(passengerId) {
-    fetch(`https://nodeserver-beta.vercel.app/passenger/bookings/${passengerId}`)
+    fetch(`http://localhost:3001/passenger/bookings/${passengerId}`)
         .then(response => response.json())
         .then(data => {
             const bookingList = document.getElementById('bookingList');
@@ -67,7 +67,7 @@ function fetchPassengerBookings(passengerId) {
 
 // Cancel a booking by booking ID
 function cancelBooking(bookingId) {
-    fetch(`https://nodeserver-beta.vercel.app/bookings/cancel/${bookingId}`, {
+    fetch(`http://localhost:3001/bookings/cancel/${bookingId}`, {
         method: 'DELETE', // or 'POST' depending on how your backend handles cancellation
     })
     .then(response => response.json())
@@ -95,7 +95,7 @@ function cancelBooking(bookingId) {
         const passengerId = urlParams.get('passengerId');
 
         // Make the POST request to create a new booking
-        fetch(`https://nodeserver-beta.vercel.app/passenger/bookings/create`, {
+        fetch(`http://localhost:3001/passenger/bookings/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ function cancelBooking(bookingId) {
     // Cancel booking
     function cancelBooking(bookingId) {
     
-        fetch(`https://nodeserver-beta.vercel.app/passenger/bookings/${bookingId}/cancel`, {
+        fetch(`http://localhost:3001/passenger/bookings/${bookingId}/cancel`, {
             method: 'POST',
         })
         .then(response => response.json())
@@ -175,7 +175,7 @@ function cancelBooking(bookingId) {
 
     async function fetchDrivers(passengerLocation, radius) {
         try {
-            const response = await fetch(`https://nodeserver-beta.vercel.app/drivers/closest?lat=${passengerLocation.lat}&lng=${passengerLocation.lng}&radius=${radius}`);
+            const response = await fetch(`http://localhost:3001/drivers/closest?lat=${passengerLocation.lat}&lng=${passengerLocation.lng}&radius=${radius}`);
             const data = await response.json();
             console.log('Fetched drivers:', data); // Verify the response
             return data; // Return the full response object
@@ -290,7 +290,7 @@ fetchTripHistory(passengerId);
 
 function fetchTripHistory(passengerId) {
 
-    fetch(`https://nodeserver-beta.vercel.app/history/${passengerId}`)
+    fetch(`http://localhost:3001/history/${passengerId}`)
         .then(response => response.json())
         .then(data => {
             const tripHistoryList = document.getElementById('tripHistoryList');
@@ -330,7 +330,7 @@ function fetchTripHistory(passengerId) {
   // delete Trip Histroy
     function deleteBooking(passengerId) {
     
-        fetch(`https://nodeserver-beta.vercel.app/passenger/bookings/${passengerId}/delete`, {
+        fetch(`http://localhost:3001/passenger/bookings/${passengerId}/delete`, {
             method: 'POST',
         })
         .then(response => response.json())
@@ -355,7 +355,7 @@ function openPaymentModal(trip) {
 
 // Handle payment
 function payForTrip(tripId) {
-    fetch(`https://nodeserver-beta.vercel.app/pay/${tripId}`, {
+    fetch(`http://localhost:3001/pay/${tripId}`, {
         method: 'POST'
     })
     .then(response => response.json())
@@ -381,7 +381,7 @@ function openRatingModal(trip) {
 function submitRating(tripId) {
     const rating = document.getElementById('ratingInput').value;
     
-    fetch(`https://nodeserver-beta.vercel.app/rate/${tripId}`, {
+    fetch(`http://localhost:3001/rate/${tripId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

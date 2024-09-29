@@ -26,7 +26,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
 
     };
 
-    fetch('https://nodeserver-beta.vercel.app/register', {
+    fetch('http://localhost:3001/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -45,6 +45,4 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         console.error('Error:', error);
         alert('An error occurred while registering.');
     });
-
-
 });

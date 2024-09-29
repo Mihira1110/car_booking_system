@@ -24,7 +24,7 @@ const connectDB = async () => {
 
 // Middleware
 app.use(cors({
-  origin: 'https://client-umber-gamma.vercel.app'
+  origin: 'http://127.0.0.1:5500'
 }));
 app.use(express.json());
 
