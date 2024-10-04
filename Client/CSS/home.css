@@ -1,138 +1,192 @@
-/* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Basic Reset */
+* {
     margin: 0;
     padding: 0;
-    background: #fff;
-    color: #333;
+    box-sizing: border-box;
 }
 
-/* Navbar */
-.navbar {
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f3c623, #f76b1c);
+    height: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
 }
 
-.navbar-logo img {
-    height: 50px;
-}
-
-.navbar-nav ul {
-    list-style: none;
+/* Main Container */
+.container {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.navbar-nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.navbar-user img {
-    height: 40px;
-}
-
-.dropdown-icon {
-    display: none;
-    font-size: 30px;
-    color: white;
-}
-
-.dropdown-menu {
-    display: none;
-}
-
-/* Main Section Styles */
-.intro-section {
-    padding: 60px 20px;
+/* White container with rounded corners */
+.content-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
     text-align: center;
-    background: linear-gradient(135deg, #fff5c3, #f7c472);
 }
 
+/* Logo Section */
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+/* Welcome and Services Section */
 .intro-section h1 {
-    color: #f76b1c;
-    font-size: 36px;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #003366;
 }
 
-.services-section, .benefits-section {
-    padding: 40px 20px;
-    background-color: #f3f3f3;
+.intro-section p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333333;
 }
 
-.services-section h2, .benefits-section h2 {
-    text-align: center;
-    color: #f3c623;
-    font-size: 30px;
+.services-section h2,
+.benefits-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #003366;
 }
 
-.service-img, .benefits-img {
+.service-img,
+.benefits-img {
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
 }
 
-.service-img img, .benefits-img img {
+.service-img img,
+.benefits-img img {
     width: 80px;
+    height: 80px;
 }
 
-.services-section ul, .benefits-section ul {
+ul {
     list-style: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* Book a Taxi Button */
+.button-group {
+    margin: 20px 0;
+}
+
+.btn {
+    background-color: #FFCC00;
+    color: rgb(0, 0, 0);
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.services-section li, .benefits-section li {
-    margin: 10px 0;
-    color: #333;
+.btn:hover {
+    background-color: #e6b800;
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    background: #333;
-    color: white;
-    padding: 20px;
-}
-
-.footer .social-icons img {
-    height: 30px;
-    margin: 0 10px;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .navbar-nav ul {
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        display: none;
+/* Responsive Design */
+@media (max-width: 600px) {
+    .content-box {
+        padding: 20px;
+        margin: 0 15px;
+        max-width: 600px;
+        border-radius: 10px;
     }
 
-    .navbar-nav ul li {
-        text-align: center;
-        padding: 10px;
-    }
-
-    .dropdown-icon {
-        display: block;
-        cursor: pointer;
-    }
-
-    .dropdown-icon:hover + .navbar-nav ul {
+    /* Ensure that body is scrollable if content exceeds the screen size */
+    body {
+        padding: 20px;
+        margin: 0;
+        min-height: auto; /* Ensure the height covers the full viewport */
         display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Align at the top to allow space for scrolling */
+        overflow-y: auto; /* Enable scrolling if needed */
     }
 
-    .service-img, .benefits-img {
+    .container {
+        padding: 0;
+        width: 100%;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .service-img img, .benefits-img img {
+    .content-box {
+        max-width: 600px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Logo Section */
+    .logo {
         margin-bottom: 20px;
     }
+
+    .logo img {
+        width: 200px;
+        height: auto;
+    }
+
+    .intro-section h1 {
+        font-size: 24px;
+    }
+
+    .intro-section p,
+    ul li {
+        font-size: 14px;
+    }
+
+    .services-section h2,
+    .benefits-section h2 {
+        font-size: 22px;
+    }
+
+    .service-img,
+    .benefits-img {
+        flex-direction: flex;
+        align-items: center;
+    }
+
+    .service-img img,
+    .benefits-img img {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
 }
+

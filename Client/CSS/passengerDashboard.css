@@ -11,7 +11,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding: 20px;
 }
 /* Booking Section */
@@ -78,32 +77,6 @@ body {
     max-width: 150px;
     height: auto;
     margin-bottom: 20px;
-}
-
-/* Footer Styles */
-.footer {
-    background-color: #faf9d0;
-    text-align: center;
-    padding: 10px;
-    margin-top: 30px;
-    color: #000000;
-    font-size: 13px;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.footer .social-icons {
-    margin: 10px 0;
-}
-
-.footer .social-icons a {
-    margin: 0 15px;
-}
-
-.footer .social-icons img {
-    width: 30px; /* Adjust the size of the social media icons */
-    height: auto;
-    vertical-align: middle;
 }
 
 @media screen and (max-width: 768px) {

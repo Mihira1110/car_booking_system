@@ -8,11 +8,13 @@
   <link rel="stylesheet" href="./CSS/adminDashboard.css"> <!-- Custom CSS if needed -->
 </head>
 <body>
-  <img class="logo" src="./assets/City Taxi.png">
+  <!-- Logo -->
+  <img class="logo" src="./assets/City Taxi.png" alt="City Taxi Logo">
+  
   <div class="container mt-5">
     <h2 class="text-center mb-4">Admin Dashboard</h2>
 
-    <!-- Nav tabs for Users, Bookings, and Trips -->
+    <!-- Nav tabs for Users, Bookings, Trips, and Reports -->
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" href="#users" role="tab" data-toggle="tab">Users</a>
@@ -23,15 +25,16 @@
       <li class="nav-item">
         <a class="nav-link" href="#trips" role="tab" data-toggle="tab">Trips</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#reports" role="tab" data-toggle="tab">Reports</a> <!-- New Tab for Reports -->
+      </li>
     </ul>
 
     <!-- Tab content -->
     <div class="tab-content">
-      <!-- ======================= USERS ======================= -->
+      <!-- USERS Tab -->
       <div role="tabpanel" class="tab-pane active" id="users">
         <h3 class="mt-4">Manage Users</h3>
-        
-        <!-- View Users -->
         <table class="table table-bordered mt-4">
           <thead>
             <tr>
@@ -46,7 +49,7 @@
           </tbody>
         </table>
 
-        <!-- Add User -->
+        <!-- Add New User -->
         <h4>Add New User</h4>
         <form id="addUserForm" class="mt-4">
           <div class="form-group">
@@ -85,14 +88,11 @@
             </div>
           </div>
         </div>
-
       </div>
 
-      <!-- ======================= BOOKINGS ======================= -->
+      <!-- BOOKINGS Tab -->
       <div role="tabpanel" class="tab-pane" id="bookings">
         <h3 class="mt-4">Manage Bookings</h3>
-
-        <!-- View Bookings -->
         <table class="table table-bordered mt-4">
           <thead>
             <tr>
@@ -109,7 +109,7 @@
           </tbody>
         </table>
 
-        <!-- Add Booking -->
+        <!-- Add New Booking -->
         <h4>Add New Booking</h4>
         <form id="addBookingForm" class="mt-4">
           <div class="form-group">
@@ -156,14 +156,11 @@
             </div>
           </div>
         </div>
-
       </div>
 
-      <!-- ======================= TRIPS ======================= -->
+      <!-- TRIPS Tab -->
       <div role="tabpanel" class="tab-pane" id="trips">
         <h3 class="mt-4">Manage Trips</h3>
-
-        <!-- View Trips -->
         <table class="table table-bordered mt-4">
           <thead>
             <tr>
@@ -180,7 +177,7 @@
           </tbody>
         </table>
 
-        <!-- Add Trip -->
+        <!-- Add New Trip -->
         <h4>Add New Trip</h4>
         <form id="addTripForm" class="mt-4">
           <div class="form-group">
@@ -227,24 +224,74 @@
             </div>
           </div>
         </div>
-
       </div>
+
+      <!-- REPORTS Tab -->
+<div role="tabpanel" class="tab-pane" id="reports">
+  <div class="report-section">
+      <h4>Generate Reports</h4>
+      <div class="report-item">
+          <span class="report-title">Daily Rides Report</span>
+          <div class="report-buttons"> <!-- Keep this div for buttons -->
+              <button class="btn btn-primary">Generate Report</button>
+              <button class="btn btn-secondary ml-2">View</button>
+          </div>
+      </div>
+      <div class="report-item">
+          <span class="report-title">Daily Customers Report</span>
+          <div class="report-buttons">
+              <button class="btn btn-primary">Generate Report</button>
+              <button class="btn btn-secondary ml-2">View</button>
+          </div>
+      </div>
+      <div class="report-item">
+          <span class="report-title">System Performance Report</span>
+          <div class="report-buttons">
+              <button class="btn btn-primary">Generate Report</button>
+              <button class="btn btn-secondary ml-2">View</button>
+          </div>
+      </div>
+  </div>
+
+  <h4 class="mt-4">Generated Reports</h4>
+  <table class="table table-bordered mt-3">
+      <thead>
+          <tr>
+              <th>Report Name</th>
+              <th>Date</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody id="generatedReportsTableBody">
+          <!-- Past generated reports will be dynamically populated here -->
+          <tr>
+              <td>Daily Rides Report</td>
+              <td>2024-10-01</td>
+              <td><button class="btn btn-secondary">View</button></td>
+          </tr>
+          <tr>
+              <td>Daily Customers Report</td>
+              <td>2024-10-02</td>
+              <td><button class="btn btn-secondary">View</button></td>
+          </tr>
+          <tr>
+              <td>System Performance Report</td>
+              <td>2024-10-03</td>
+              <td><button class="btn btn-secondary">View</button></td>
+          </tr>
+          <!-- Add more rows as needed -->
+      </tbody>
+  </table>
+</div>
+
+
 
     </div>
   </div>
 
-  <!-- Footer Section -->
-  <footer class="footer">
-    <p>Follow Us:</p>
-    <div class="social-icons">
-        <a href="https://facebook.com" target="_blank"><img src="PNG/social-media (2).png" alt="Facebook Icon"></a>
-        <a href="https://twitter.com" target="_blank"><img src="PNG/social-media.png" alt="Twitter Icon"></a>
-    </div>
-    <p>&copy; 2024 City Taxi (PVT) Ltd. All rights reserved.</p>
-</footer>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./JS/admindashboard.js"></script> <!-- JavaScript for CRUD operations -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="./JS/adminDashboard.js"></script> <!-- Link to custom JS for functionality -->
 </body>
 </html>

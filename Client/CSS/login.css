@@ -20,7 +20,7 @@ body {
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 150px;
+    max-width: 250px;
     height: auto;
     transition: all 0.3s ease;
 }

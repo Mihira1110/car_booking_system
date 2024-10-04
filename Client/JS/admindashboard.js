@@ -248,6 +248,33 @@ async function deleteTrip(id) {
     }
 }
 
+// Fetch daily bookings report
+async function fetchDailyBookingsReport(startDate, endDate) {
+    const response = await fetch(`${baseURL}/reports/daily-bookings?startDate=${startDate}&endDate=${endDate}`);
+    const report = await response.json();
+    
+    const reportTableBody = document.getElementById('dailyBookingsReportBody');
+    reportTableBody.innerHTML = '';
+
+    report.forEach(item => {
+        reportTableBody.innerHTML += `
+            <tr>
+                <td>${item._id}</td>
+                <td>${item.count}</td>
+            </tr>
+        `;
+    });
+}
+
+// Example of calling this function
+document.getElementById('reportForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+
+    await fetchDailyBookingsReport(startDate, endDate);
+});
+
 // Initial fetch of all data
 fetchUsers();
 fetchBookings();

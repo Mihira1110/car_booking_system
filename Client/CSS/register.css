@@ -7,11 +7,11 @@
 }
 
 body {
+    background: linear-gradient(135deg, #f3c623, #f76b1c);
+    min-height: 100vh; /* Ensures the background covers the full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f3c623, #f76b1c);
     padding: 20px;
 }
 
@@ -19,12 +19,12 @@ body {
 .logo {
     display: block;
     max-width: 110px;
-    margin: 0 auto 5px auto;
+    margin: 0 auto 5px;
 }
 
 /* Container Styling */
 .container {
-    background: #fff;
+    background: #ffffff;
     padding: 40px;
     width: 100%;
     max-width: 500px;
@@ -32,20 +32,8 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
     position: relative;
-    overflow: hidden;
     z-index: 1;
-}
-
-.container::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 400px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    z-index: 0;
+    overflow: hidden;
 }
 
 h2 {
@@ -54,6 +42,7 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Form Styles */
 form {
     position: relative;
     z-index: 1;
@@ -135,7 +124,7 @@ p a:hover {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .container {
         padding: 20px;
         max-width: 100%;

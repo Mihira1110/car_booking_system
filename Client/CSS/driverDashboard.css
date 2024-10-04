@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: auto;
 }
 
 /* Container */
@@ -105,46 +105,4 @@ button:hover {
     margin-bottom: 10px;
     border-radius: 10px;
     font-size: 1rem;
-}
-
-/* Footer Styles */
-.footer {
-    background-color: #faf9d0;
-    text-align: center;
-    padding: 10px;
-    margin-top: 30px;
-    color: #000000;
-    font-size: 13px;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.footer .social-icons {
-    margin: 10px 0;
-}
-
-.footer .social-icons a {
-    margin: 0 15px;
-}
-
-.footer .social-icons img {
-    width: 30px; /* Adjust the size of the social media icons */
-    height: auto;
-    vertical-align: middle;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    #dashboard p {
-        font-size: 0.9rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
 }

@@ -1,254 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* General Styles */
 body {
-    margin: 0;
-    font-family: poppins;
-    color: #333;
-    background: linear-gradient(135deg, #f3c623, #f39057);
-    padding-top: 80px;
-}
-
-/* Navigation Bar Styles */
-.navbar {
-    position: fixed; /* Fixes the navbar at the top */
-    top: 0;
-    left: 0;
-    width: 100%; /* Ensure the navbar takes up the full width of the screen */
-    display: flex;    
-    justify-content: space-between;
-    align-items: center;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f3c623, #f76b1c);
-    color: #000000;
-    padding: 10px 20px;
-    z-index: 1000; /* Ensures the navbar stays on top of other content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for better visibility */
-}
-
-
-.navbar-logo img {
-    height: 60px; /* Adjust logo size */
-    width: auto;
-    margin-left: 200px;
-}
-
-.navbar-nav ul {
-    list-style: none;
     display: flex;
-    gap: 70px;
-    margin: 0;
-    padding: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Equal padding around the container */
+    
 }
 
-/* Navigation Bar Styles */
-.navbar-nav a {
-    position: relative;
-    color: #000000;
-    text-decoration: none;
-    font-size: 20px;
-    overflow: hidden; 
-}
-
-.navbar-nav a::after {
-    content: ''; 
-    position: absolute;
-    left: 50%; 
-    bottom: -5px; 
+/* Main Container */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
     width: 100%;
-    height: 1px;
-    background-color: #000000; 
-    transform: translateX(-50%) scaleX(0); 
-    transform-origin: center; 
-    transition: transform 0.4s ease-out;
+    text-align: left;
+    margin: 20px; /* Space around the white box */
 }
 
-.navbar-nav a:hover::after {
-    transform: translateX(-50%) scaleX(1);
-}
-
-
-.navbar-user img {
-    height: 40px;
-    width: auto;
-    border-radius: 50%;
-    margin-right: 250px;
+img {
+    display: block; /* Ensures the image is treated as a block-level element */
+    width: 250px; /* Ensures the image scales down with the container */
+    height: auto; /* Maintains the aspect ratio of the image */
+    margin: 0 auto 20px; /* Centers the image and adds space below */
 }
 
 
-/* Footer Styles */
-.footer {
-    background-color: #faf9d0;
-    text-align: center;
-    padding: 10px;
-    margin-top: 30px;
-    color: #000000;
-    font-size: 13px;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.footer .social-icons {
-    margin: 10px 0;
-}
-
-.footer .social-icons a {
-    margin: 0 15px;
-}
-
-.footer .social-icons img {
-    width: 30px; /* Adjust the size of the social media icons */
-    height: auto;
-    vertical-align: middle;
-}
-
-
-/* Main Section Styles */
-main {
-    padding: 20px 200px;
-}
-
-/* About Us Section */
-#about-us, #mission, #services, #technology, #testimonials, #our-team, #safety, #contact-us, #careers {
-    margin-bottom: 50px;
-}
-
-#about-us h1, #mission h2, #services h2, #technology h2, #testimonials h2, #our-team h2, #safety h2, #contact-us h2, #careers h2 {
-    font-weight: 600;
-    color: #000000;
+/* Section Headings */
+h1, h2 {
+    color: #003366;
     margin-bottom: 20px;
     text-align: center;
 }
 
-#about-us p, #mission p, #technology p, #testimonials p, #our-team p, #safety p, #contact-us p, #careers p {
-    font-weight: 300;
-    font-size: 18px;
-    color: #333333;
-    line-height: 1.8;
+h1 {
+    font-size: 32px;
 }
 
+h2 {
+    font-size: 28px;
+}
+
+/* Text Styles */
+p {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+/* List Styles */
 ul {
-    padding-left: 20px;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 ul li {
-    font-size: 18px;
+    font-size: 16px;
+    color: #333333;
     margin-bottom: 10px;
-    font-weight: 400;
-}
-
-/* Services Section */
-#services ul {
-    list-style-type: disc;
-    margin-left: 40px;
-}
-
-#services li {
-    font-size: 18px;
-    color: #000000;
 }
 
 /* Testimonials Section */
-#testimonials {
-    background-color: #f5f5f5;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
 .testimonial {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
     margin-bottom: 20px;
     font-style: italic;
 }
 
+/* Testimonials author */
 .testimonial strong {
     display: block;
     margin-top: 10px;
-    color: #000000;
-    font-weight: 500;
-}
-
-/* Our Team Section */
-#our-team ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-#our-team li {
-    font-size: 18px;
-    color: #000000;
-    margin-bottom: 10px;
-}
-
-/* Contact Us Section */
-#contact-us ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-#contact-us li {
-    font-size: 18px;
-    color: #000000;
-    margin-bottom: 10px;
+    font-style: normal;
+    color: #003366;
 }
 
 /* Button Styles */
 .button {
     display: inline-block;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
+    background-color: #FFCC00;
+    color: white;
+    padding: 15px 30px;
     font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
     transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #333333;
-}
-
-/* Career Opportunities Section */
-#careers {
-    background-color: #f9f9f9;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#careers p {
-    font-size: 18px;
-    font-weight: 300;
-    margin-bottom: 20px;
-}
-
-#careers a.button {
-    font-weight: 500;
+    background-color: #e6b800;
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-    main {
-        padding: 20px 50px;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar-logo img {
-        margin-left: 50px;
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        overflow-y: auto; /* Enable scrolling if needed */
     }
 
-    .navbar-user img {
-        margin-right: 50px;
-    }
-
-    main {
+    .container {
         padding: 20px;
+        margin: 20px 10px; /* Smaller margins for mobile */
     }
-}
 
-@media (max-width: 480px) {
-    .navbar-nav ul {
-        gap: 30px;
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p, ul li {
+        font-size: 14px;
+    }
+
+    .testimonial {
+        padding: 15px;
+    }
+
+    .button {
+        padding: 12px 20px;
+        font-size: 16px;
     }
 }

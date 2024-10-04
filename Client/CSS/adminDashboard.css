@@ -9,6 +9,8 @@
 body {
     background: linear-gradient(135deg, #f3c623, #f76b1c);
     color: #333;
+    min-height: 100vh; /* Ensure body covers full viewport height */
+    padding: 50px 0; /* Use padding for spacing around the container */
 }
 
 .container {
@@ -18,7 +20,6 @@ body {
     padding: 30px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     margin: auto; /* Center container */
-    margin-top: 50px;
 }
 
 /* Logo */
@@ -38,7 +39,8 @@ h2 {
 
 /* Tabs */
 .nav-tabs {
-    justify-content: center;
+    display: flex;
+    justify-content: center; /* Center tabs */
     margin-bottom: 30px;
 }
 
@@ -51,9 +53,10 @@ h2 {
     color: #333;
     background-color: #f3f4f6;
     border: none;
-    border-radius: 30px;
+    border-radius: 30px; /* Rounded corners for buttons */
     padding: 10px 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    text-align: center; /* Center text */
 }
 
 .nav-tabs .nav-link.active {
@@ -93,6 +96,8 @@ h2 {
     border: none;
     transition: background-color 0.3s ease;
     width: 100%; /* Make buttons full width */
+    padding: 10px; /* Ensure consistent padding */
+    border-radius: 8px; /* Rounded corners */
 }
 
 .btn-primary:hover {
@@ -126,6 +131,7 @@ h2 {
     border-color: #f76b1c;
 }
 
+/* Modal Styles */
 .modal-content {
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -134,8 +140,87 @@ h2 {
     margin: auto; /* Center the modal */
 }
 
-/* Mobile Responsiveness */
+.report-section {
+    margin-top: 20px;
+}
+
+.report-item {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically centered */
+    margin-bottom: 20px; /* Space between each report item */
+}
+
+.report-title {
+    font-size: 1rem; /* Font size for the report title */
+    color: #333; /* Title text colour */
+    flex: 1; /* Allow title to take available space */
+    margin-right: 10px; /* Space between title and button */
+}
+
+.report-buttons {
+    display: flex; /* Flexbox for buttons to stay inline */
+    gap: 10px; /* Space between buttons */
+}
+
+/* Keep existing button styles */
+.report-section button {
+    background-color: #f76b1c;
+    border: none;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    flex: 1; /* Make buttons take equal width */
+}
+
+.report-section button:hover {
+    background-color: #d95a0b;
+}
+
+.report-section button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+
+.report-title {
+    font-size: 1rem; /* Font size for the report title */
+    color: #333; /* Title text colour */
+    flex: 1; /* Allow title to take available space */
+    margin-right: 10px; /* Space between title and button */
+}
+
+.report-section button {
+    background-color: #f76b1c;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width buttons */
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.report-section button:hover {
+    background-color: #d95a0b;
+}
+
+.report-section button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Media query adjustments */
 @media (max-width: 768px) {
+    .report-section h4 {
+        font-size: 1.2rem;
+    }
+
+    .report-section button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
     .container {
         padding: 15px; /* Adjust padding for mobile */
     }
@@ -161,30 +246,4 @@ h2 {
         padding: 8px;
         font-size: 0.9rem;
     }
-}
-
-/* Footer Styles */
-.footer {
-    background: linear-gradient(135deg, #f3c623, #f76b1c);
-    text-align: center;
-    padding: 10px;
-    margin-top: 30px;
-    color: #000000;
-    font-size: 13px;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.footer .social-icons {
-    margin: 10px 0;
-}
-
-.footer .social-icons a {
-    margin: 0 15px;
-}
-
-.footer .social-icons img {
-    width: 30px; /* Adjust the size of the social media icons */
-    height: auto;
-    vertical-align: middle;
 }
