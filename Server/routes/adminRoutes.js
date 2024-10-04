@@ -21,9 +21,4 @@ router.post('/trips', createTrip);
 router.put('/trips/:id', updateTrip);
 router.delete('/trips/:id',deleteTrip);
 
-// Add these lines in your existing router file
-router.get('/reports/daily-bookings', getDailyBookingsReport);
-router.get('/reports/total-revenue', getTotalRevenueReport);
-
-
 module.exports = router;

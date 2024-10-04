@@ -37,7 +37,7 @@ app.use('/', authRoutes);
 app.use('/', driverRoutes);
 app.use('/', passengerRoutes);
 app.use('/', tripRoutes);
-app.use('/',adminDashboard);
+app.use('/', adminDashboard);
 
 // Basic route
 app.get('/', (req, res) => {
